@@ -1,0 +1,8 @@
+{
+  "mode": "platform",
+  "host": "http://172.17.0.1:8888",
+  "api_key": "m0_admin_92a83b4c7d1e5f0a6b8c4d2e1f3a5b7c",
+  "user_id": "kasimova_rus_prod_v2",
+  "agent_id": "kasimova-rus",
+  "sync_max_chars": 6000
+}

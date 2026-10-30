@@ -1,0 +1,49 @@
+name: hermes-kasimova-rus
+services:
+  hermes:
+    image: nousresearch/hermes-agent@sha256:d4da4a40cd7a28aba983775d9fd31d94cbf153eeb0cb9e844d6d0f612b7c24db
+    container_name: hermes-kasimova-rus
+    hostname: kasimova-rus
+    restart: unless-stopped
+    command: gateway run
+    environment:
+      - HERMES_DASHBOARD=1
+      - API_SERVER_HOST=0.0.0.0
+    ports:
+      - "127.0.0.1:9210:9119"
+    volumes:
+      - ./data:/opt/data
+    mem_limit: 2g
+    memswap_limit: 2g
+    pids_limit: 512
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+  adapter:
+    build:
+      context: ./adapter
+    container_name: hermes-kasimova-rus-adapter
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_BOT_TOKEN=8903487664:AAGcI0CzHuakhbuCcSORKc-PyKxCa7ivq5c
+      - HERMES_API_URL=http://hermes:8642
+      - HERMES_API_KEY=7ec8facaece128ffd7c7e6951b1c92bf1f0268e805548d0ed7439d71fc36790a
+      - BUSINESS_OWNER_ID=7340743515
+      - ADMIN_CHATS=7340743515
+      - RECEIPT_THREAD_ID=0
+      - ESCALATION_THREAD_ID=0
+      - ADAPTER_DB_PATH=/app/data/adapter.sqlite3
+      - TELEGRAM_MCP_URL=http://172.17.0.1:8765/mcp
+      - TELEGRAM_MCP_KEY=3R1Pxrd8i8EC5hDdurDY3__f9XNPdLilYl0_4hyOMLQ
+      - DEBOUNCE_WAIT=3.5
+      - MAX_BURST_WAIT=10.0
+      - SAFE_TEST_MODE=false
+    volumes:
+      - ./data/adapter:/app/data
+    depends_on:
+      - hermes
+    mem_limit: 512m
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }

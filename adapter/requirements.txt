@@ -1,0 +1,5 @@
+aiogram>=3.17.0,<4.0.0
+httpx>=0.28.0,<1.0.0
+PyJWT>=2.8.0
+cryptography>=42.0.0
+Pillow>=10.0.0

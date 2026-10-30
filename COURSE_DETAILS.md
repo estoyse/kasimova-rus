@@ -1,0 +1,1 @@
+/opt/hermes-clients/clients/kasimova-rus/data/adapter/COURSE_DETAILS.md

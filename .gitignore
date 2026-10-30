@@ -1,0 +1,61 @@
+# Databases & Logs
+*.sqlite3*
+*.db*
+*.db-wal
+*.db-shm
+*.log*
+*.pid
+*.sock
+*.lock
+*.jsonl
+
+# Credentials & secrets
+*.env
+*.env.bak
+gcp-service-account.json
+credentials/
+auth.json
+*.key
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Heavy Hermes gateway runtime data
+data/cache/
+data/lazy-packages/
+data/home/
+data/sessions/
+data/cron/
+data/attachments/
+data/workspace/
+data/image_cache/
+data/backups/
+data/bot_relay/
+data/kanban/
+data/.curator_backups/
+data/.local/
+data/runtime/
+data/logs/
+data/plugins/
+data/*.csv
+data/*.xlsx
+data/*.json
+!data/mem0.json
+
+# Built-in skills (keep only our custom sales skill)
+data/skills/*
+!data/skills/productivity/
+data/skills/productivity/*
+!data/skills/productivity/russian-course-sales/
+data/.ssh/
+data/.local/
+data/.mem0/
+data/state/
+data/bin/
+data/.room*
+data/.codex*
+data/install_id
+data/*.etag
+data/*.bak
+data/*.yaml
